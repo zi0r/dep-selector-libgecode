@@ -27,7 +27,7 @@ module GecodeBuild
 
   def self.configure_cmd
     args = %W[
-      sh
+      bash
       #{configure}
       --prefix=#{prefix}
       --disable-doc-dot
@@ -59,6 +59,8 @@ module GecodeBuild
       ENV['CC'] = 'gcc44'
       ENV['CXX'] = 'g++44'
     end
+
+    ENV['CONFIG_SHELL'] = "/bin/bash"
 
     # Configure the gecode libraries to look for other gecode libraries in the
     # installed lib dir. This isn't needed for dep-selector to correctly link
